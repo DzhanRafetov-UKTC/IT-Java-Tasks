@@ -16,7 +16,7 @@ public class zadacha2 {
 */
 
     public static void main(String args[]) {
-        String str = "          ";
+        String str = "          \t";
 
 
         Scanner sc = new Scanner(System.in);
