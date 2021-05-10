@@ -1,0 +1,54 @@
+package PROJECT;
+import java.io.Console;
+import java.util.*;
+import java.util.function.Consumer;
+
+public class zadacha2 {
+
+/* 2. Средноаритметично по редове
+Напишете програма, която въвежда брой редове и брой колони. 
+След което въвежда елементите на двумерен масив (матрица) със съответния брой редове и колони. 
+Всички елементи на масива ще са цели числа. 
+Изведете двумерния масив, като на всеки ред прибавите по 1 елемент в края му, 
+който да бъде равен на средноаритметичното от всички елементи в съответния ред. 
+При извеждане на масива го форматирайте, така че всеки елемент да заема 10 позиции.
+Решение: Джан Рафетов
+*/
+
+    public static void main(String args[]) {
+        String str = "          ";
+
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of rows: ");
+        int rows = sc.nextInt();
+        System.out.print("Enter the number of columns: ");
+        int cols = sc.nextInt();
+        int[][] array = new int[rows][cols];
+
+        System.out.println("Enter the elements of the array: ");
+
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                array[i][j] = sc.nextInt();
+
+            }
+        }
+        System.out.println("Elements of the array are: ");
+        for (int i = 0; i < rows; i++) {
+            double avg = 0;
+            for (int j = 0; j < cols; j++) {
+                avg += array[i][j];
+
+                str += array[i][j] + "          ";
+            }
+            avg = avg / cols;
+            System.out.println(str + avg);
+            str = "           \t";
+        }
+
+    }
+}
+
+
