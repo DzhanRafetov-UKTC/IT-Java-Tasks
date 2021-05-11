@@ -1,0 +1,95 @@
+package OOP;
+import java.util.*;
+import java.util.stream.Collectors;
+
+/*
+1. Обработка на масив
+Вие ще получите масив от низове и трябва да изпълните командите под тях. Вие можете да
+получите три команди:
+ Reverse – обръща реда в масива
+ Distinct – изтрива всички неуникални (повтарящи се) елементи на масива
+ Replace {index} {string} – замества елемента на дадената позиция index с низ
+string, който ви е даден
+Вход
+ На първи ред, получавате масив от символни низове string array
+ На втори ред ще получите броя на редове, които следват
+ На следващите n реда ще получите команди
+Изход
+Изведете масива в следния формат:
+{1 st element}, {2 nd element}, {3 rd element} … {n th element} 
+
+*/
+
+
+
+public class HOMEWORKPROGRAMMING02 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("enter the length of String array");
+        int n = sc.nextInt();
+        String[] sarray = new String[n];
+ 
+        for (int i = 0; i < n; i++) {
+            System.out.println("enter the " + (i + 1) + " String :");
+            sarray[i] = sc.next();
+ 
+        }
+        System.out.println("Strings Entered by user:");
+ 
+ 
+ 
+        String answer = "";
+        List<String> list = Arrays.asList(sarray);
+        Set<String> s = new LinkedHashSet<String>(list);
+ 
+        while (!answer.contains("end")) {
+            System.out.println("Please choose <rem> <reverse>  <replace> <end> :");
+            answer = sc.next();
+ 
+ 
+            if (answer.contains("replace")) {
+                System.out.println("Enter index to replace");
+ 
+                ArrayList<String> needthisman =
+                        new ArrayList<String>(s);
+                Collections.reverse(needthisman);
+ 
+                int index = sc.nextInt();
+                needthisman.remove(index);
+                needthisman.add(index,"Hello");
+                System.out.println(needthisman);
+ 
+            }
+ 
+ 
+            if (answer.contains("rem")) {
+                s.addAll(Arrays.asList(sarray));
+                System.out.println(s);
+ 
+            }
+ 
+ 
+            if (answer.contains("reverse")) {
+ 
+                s.addAll(Arrays.asList(sarray));
+ 
+                ArrayList<String> reversing = new ArrayList<String>(s);
+ 
+                Collections.reverse(reversing);
+ 
+                for(String result : reversing) {
+ 
+                    System.out.print(Arrays.toString(new String[]{result}));
+ 
+                }
+                System.out.println();
+ 
+                }
+ 
+ 
+            }
+            System.out.println("Good Bye!");
+ 
+ 
+        }
+    }
