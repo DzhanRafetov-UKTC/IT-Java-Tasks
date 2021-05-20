@@ -1,0 +1,29 @@
+import com.sun.jdi.PathSearchingVirtualMachine;
+
+import java.io.Console;
+import java.util.*;
+
+
+/*
+
+2. Индекс на буква
+Напишете програма, която създава масив, съдържащ всички букви от английската азбука (a-z).
+Въведете дума с малки букви (lowercase) от конзолата и изведете съответния индекс на всяка
+буква от масива с буквите от английската азбука.
+*/
+
+
+public class test {
+    public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        String input = scan.nextLine().toLowerCase();
+        final String alphabet = "abcdefghijklmnopqrstuvwxyz";//декларираме final String -за да не може да се промени String-a
+
+        for (int i = 0; i < input.length(); i++) { //Обхождаме въведения текст от конзолата
+            //принтираме буква по буква нашият текст и  съотвения й индекс от азбуката ,която сме дефинирали горе
+            System.out.println(input.charAt(i) +"     --->        "+ alphabet.indexOf(input.charAt(i)));
+        }
+
+    }
+}
