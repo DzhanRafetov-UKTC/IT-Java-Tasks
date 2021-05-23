@@ -1,0 +1,57 @@
+import java.util.*;
+public class lottary {
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int rows = scan.nextInt();
+        int cols = scan.nextInt();
+        int[][] arr = new int[rows][cols];
+
+        scan.nextLine();    // this is needed as an empty line will be read first
+        for (int r = 0; r < rows; r++) {
+
+            String[] line = scan.nextLine().split(" ");   // change here
+            int c = 0;
+            for (String item : line) {
+                arr[r][c++] = Integer.parseInt(item);//My error is from here
+            }
+        }
+
+        double d1 = 0, d2 = 0;
+        for (int k = 0; k < rows; k++) d1 += arr[k][k];
+        for (int k = 0; k < rows; k++) d2 += arr[k][rows - k - 1];
+
+
+        double s1 = 0, s2 = 0;
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                if (col > row) s1 += arr[row][col];
+                if (col < row) s2 += arr[row][col];
+            }
+        }
+        if (d1 == d2 && s1 % 2 == 0 && s2 % 2 != 0)
+            System.out.println("Yes");
+        else {
+            System.out.println("No");
+            return;
+        }
+        double sd = 0;
+        for (int k = 0; k < rows; k++)
+            if (arr[k][k] % 2 == 0) sd += arr[k][k];
+
+
+        double sr = 0;
+        for (int k = 0; k < cols; k++) {
+            if (arr[0][k] % 2 == 0) sr += arr[0][k];
+            if (arr[rows - 1][k] % 2 == 0) sr += arr[rows - 1][k];
+        }
+        //
+        double sc = 0;
+        for (int k = 0; k < rows; k++) {
+            if (arr[k][0] % 2 != 0) sc += arr[k][0];
+            if (arr[k][cols - 1] % 2 != 0) sc += arr[k][cols - 1];
+        }
+        double avr = (s2 + sd + sr + sc) / 4.0;
+        System.out.printf("The amount of money won is: %.2f", avr);
+    }
+}
