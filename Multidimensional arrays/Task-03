@@ -1,41 +1,47 @@
-
 import java.io.Console;
 import java.util.*;
 public class task03 {
     public static void main(String[] args) {
 
-    String str = "          \t";
+        String str = "          \t";//ФОРМАТИРВАМЕ
 
-
-    Scanner sc = new Scanner(System.in);
+        //Вевежда брой редове/колони
+        Scanner sc = new Scanner(System.in);
         System.out.print("Enter the number of rows: ");
-    int rows = sc.nextInt();
+        int rows = sc.nextInt();
         System.out.print("Enter the number of columns: ");
-    int cols = sc.nextInt();
-    int[][] arr = new int[rows][cols];
+        int cols = sc.nextInt();
+        int[][] arr = new int[rows][cols];
 
+
+        //Въвеждаме елементите
         System.out.println("Enter the elements of the array: ");
 
 
         for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            arr[i][j] = sc.nextInt();
+            for (int j = 0; j < cols; j++) {
+                arr[i][j] = sc.nextInt();
+
+
+            }
+
 
         }
-    }
+        //НАМИРАМЕ МИНИМАЛНАТА СТОЙНОСТ НА  ВСЯКА ОТ КОЛОНИТЕ
+
+        System.out.println();
+
         System.out.println("Elements of the array are: ");
         for (int i = 0; i < rows; i++) {
-        double avg = 0;
-        for (int j = 0; j < cols; j++) {
-            avg += arr[i][j];
-
-            str += arr[i][j] + "          ";
+            for (int j = 0; j < cols; j++) {
+                str += arr[i][j] + "            ";//ФОРМАТИРВАМЕ
+            }
+            //ПРИНТИРАМЕ МАСИВА
+            System.out.println(str );
+            str = "          \t";
         }
-        avg = avg / cols;
-        System.out.println(str + avg);
-        str = "           \t";
-    }
         //НАМИРАМЕ МИНИМАЛНАТА СТОЙНОСТ НА  ВСЯКА ОТ КОЛОНИТЕ
+
         int i_old = 0;
         int m_old = arr[i_old].length;
 
@@ -44,13 +50,8 @@ public class task03 {
             for (int j = 0; j < arr.length; j++)
                 if (arr[j][i] < min)
                     min = arr[j][i];
-            System.out.print(min);
-            System.out.println();
-
+                //ПРИНТИРВАМЕ МИНИМУМА ОТ ВСЯКА КОЛОНА
+            System.out.print ("            "+min);
         }
-
-
-        }
-
+    }
 }
-
