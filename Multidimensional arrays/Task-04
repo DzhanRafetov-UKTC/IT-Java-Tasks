@@ -54,4 +54,4 @@ public class lottary {
         double avr = (s2 + sd + sr + sc) / 4.0;
         System.out.printf("The amount of money won is: %.2f", avr);
     }
-}
+} 
