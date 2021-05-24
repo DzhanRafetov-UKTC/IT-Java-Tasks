@@ -1,0 +1,45 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Task06 {
+    public static void main(String[] args) {
+
+
+        Scanner scan=new Scanner(System.in);
+        scan.nextLine();    // this is needed as an empty line will be read first
+
+        String [][] arr= new String[3][3];
+            for (int i = 0; i < 3; i++)
+            {
+                String[] temparray = (String[]) Arrays.stream(scan.nextLine().split("")).toArray();
+
+                for (int j = 0; j < 3; j++)
+                    arr[i][ j] = temparray[j];
+            }
+            String winner = "-";
+            if ((arr[0][0].equals("X") && arr[0][1].equals("X") && arr[0][2].equals("X")) ||
+            (arr[0][0].equals("X") && arr[1][0].equals("X") && arr[2][0].equals("X")) ||
+            (arr[0][0].equals("X") && arr[1][1].equals("X") && arr[2][2].equals("X")) ||
+            (arr[1][0].equals("X") && arr[1][1].equals("X") && arr[1][2].equals("X")) ||
+            (arr[2][0].equals("X") && arr[2][1].equals("X") && arr[2][2].equals("X")) ||
+            (arr[0][1].equals("X") && arr[1][1].equals("X") && arr[2][1].equals("X")) ||
+            (arr[0][2].equals("X") && arr[1][2].equals("X") && arr[2][2].equals("X")) ||
+            (arr[2][0].equals("X") && arr[1][1].equals("X") && arr[0][2].equals("X"))) winner = "X";
+
+            else if ((arr[0][0].equals("O") && arr[0][1].equals("O") && arr[0][2].equals("O")) ||
+            (arr[0][0].equals("O") && arr[1][0].equals("O") && arr[2][0].equals("O")) ||
+            (arr[0][0].equals("O") && arr[1][1].equals("O") && arr[2][2].equals("O")) ||
+            (arr[1][0].equals("O") && arr[1][1].equals("O") && arr[1][2].equals("O")) ||
+            (arr[2][0].equals("O") && arr[2][1].equals("O") && arr[2][2].equals("O")) ||
+            (arr[0][1].equals("O") && arr[1][1].equals("O") && arr[2][1].equals("O")) ||
+            (arr[0][2].equals("O") && arr[1][2].equals("O") && arr[2][2].equals("O")) ||
+            (arr[2][0].equals("O") && arr[1][1].equals("O") && arr[0][2].equals("O"))) winner = "O";
+            else winner = "No one";
+
+            if (winner.equals("No one"))
+                System.out.println("There is no winner");
+            else
+                System.out.printf("The winner is: ",winner);
+
+}
+}
