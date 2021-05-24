@@ -14,6 +14,7 @@ class Point
 
 class Main
 {
+
     // Function to find the maximum sum `k × k` submatrix
     public static Point findMaxSumSubMatrix(int mat[][], int k)
     {
@@ -88,15 +89,38 @@ class Main
     public static void main(String[] args)
     {
         // 5 × 5 matrix
-        int[][] mat =
-                {
-                        { 1 ,2 ,8 ,3 ,4},
-                        { 5 ,6 ,7, 8 ,9},
-                        { 2 ,8 ,3 ,4 ,5},
-                        {  7 ,5 ,1, 0 ,2},
-                        {1, 8, 9, 9 ,3 }
-                };
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter the number of rows: ");
+        int rows = sc.nextInt();
+        System.out.print("Enter the number of columns: ");
+        int cols = sc.nextInt();
+        int[][] mat = new int[rows][cols];
 
+        //Въвеждаме елементите
+        System.out.println("Enter the elements of the array: ");
+
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                mat[i][j] = sc.nextInt();
+
+
+            }
+
+
+        }
+        String str = "          \t";//ФОРМАТИРВАМЕ
+
+        System.out.println("Elements of the array are : ");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                str += mat[i][j] + "            ";//ФОРМАТИРВАМЕ
+            }
+            //ПРИНТИРАМЕ МАСИВА
+            System.out.println(str );
+            str = "          \t";
+        }
+       
         // submatrix size
         int k = 2;
 
