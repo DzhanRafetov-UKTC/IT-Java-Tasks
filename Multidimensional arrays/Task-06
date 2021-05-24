@@ -1,0 +1,22 @@
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+public class TicTacToe {
+    public static void main(String[] args) {
+        Scanner scan= new Scanner(System.in);
+
+
+        Pattern pattern = Pattern.compile("([XO])(?:(?:\\1\\1)|(?:(?:[\\sXO-]{2}\\1){2})|(?:[\\sXO-]{3}\\1){2}|(?:[\\sXO-]{4}\\1){2})", Pattern.CASE_INSENSITIVE);
+
+        Matcher matcher = pattern.matcher(scan.nextLine());
+
+        boolean matchFound = matcher.find();
+        if (matchFound) {
+            System.out.println("The winner is: " + matcher.group(1) );
+        } else {
+            System.out.println("There is no winner");
+        }
+    }
+}
